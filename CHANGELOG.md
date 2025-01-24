@@ -1,16 +1,10 @@
-## [1.0.1] - 2025-01-24
+## [1.1.2] - 2025-01-24
 
 ### Bug Fixes
 
-- 2906857 2025-01-24 fix: ci script and bump version manually (#368) by kevin@basistheory.com
+- 3688baa 2025-01-24 fix: log additional details (#369) by kevin@basistheory.com
 
 ## [1.1.1] - 2025-01-24
-
-### Chores
-
-- Deploy web-elements package
-
-## [1.1.0] - 2025-01-23
 
 ### Features
 
@@ -42,6 +36,7 @@
 ### Chores
 
 - 955d7d4 2025-01-10 chore: deploy web-elements (#343) by kevin@basistheory.com
+- Deploy web-elements package
 
 ## [1.0.0] - 2025-01-23
 

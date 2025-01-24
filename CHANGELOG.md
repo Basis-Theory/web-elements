@@ -1,3 +1,10 @@
+## [1.2.1] - 2025-01-24
+
+### Bug Fixes
+
+- af85c64 2025-01-24 fix: update CHANGELOG.md (#371) by kevin@basistheory.com
+- cc320fa 2025-01-24 fix: double the timeout for retrieving elements values (#370) by lucas@basistheory.com
+
 ## [1.1.2] - 2025-01-24
 
 ### Bug Fixes

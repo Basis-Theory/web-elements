@@ -1,3 +1,9 @@
+## [1.2.2] - 2025-01-27
+
+### Bug Fixes
+
+- b6393d1 2025-01-27 fix: commit back to master w force push (#373) by kevin@basistheory.com
+
 ## [1.2.1] - 2025-01-24
 
 ### Bug Fixes

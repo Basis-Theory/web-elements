@@ -1,23 +1,14 @@
+## [1.2.5] - 2025-01-27
+
+### Bug Fixes
+
+- 32961d4 2025-01-27 fix: sync up with last release (#376) by kevin@basistheory.com
+
+### Chores
+
+- cb0964a 2025-01-27 chore(release): 1.0.0 [skip ci] by platform@basistheory.com
+
 ## [1.2.4] - 2025-01-27
-
-### Bug Fixes
-
-- 1161c96 2025-01-27 fix: add token to second checkout action (#375) by kevin@basistheory.com
-
-## [1.2.1] - 2025-01-24
-
-### Bug Fixes
-
-- af85c64 2025-01-24 fix: update CHANGELOG.md (#371) by kevin@basistheory.com
-- cc320fa 2025-01-24 fix: double the timeout for retrieving elements values (#370) by lucas@basistheory.com
-
-## [1.1.2] - 2025-01-24
-
-### Bug Fixes
-
-- 3688baa 2025-01-24 fix: log additional details (#369) by kevin@basistheory.com
-
-## [1.1.1] - 2025-01-24
 
 ### Features
 
@@ -45,14 +36,11 @@
 - 827e1b1 2025-01-10 ci: fix pathing (#350) by kevin@basistheory.com
 - bcffe10 2025-01-09 fix: patch axios (#346) by kevin@basistheory.com
 - 1a25ebe 2025-01-09 fix: patch express and body-parser (#347) by kevin@basistheory.com
+- af85c64 2025-01-24 fix: update CHANGELOG.md (#371) by kevin@basistheory.com
+- cc320fa 2025-01-24 fix: double the timeout for retrieving elements values (#370) by lucas@basistheory.com
+- 3688baa 2025-01-24 fix: log additional details (#369) by kevin@basistheory.com
 
 ### Chores
 
 - 955d7d4 2025-01-10 chore: deploy web-elements (#343) by kevin@basistheory.com
 - Deploy web-elements package
-
-## [1.0.0] - 2025-01-23
-
-### Initial Release
-
-- Initial stable release of web-elements

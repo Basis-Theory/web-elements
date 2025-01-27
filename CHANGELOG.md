@@ -1,8 +1,8 @@
-## [1.2.3] - 2025-01-27
+## [1.2.4] - 2025-01-27
 
 ### Bug Fixes
 
-- e3d46fc 2025-01-27 fix: deploy workflow (#374) by kevin@basistheory.com
+- 1161c96 2025-01-27 fix: add token to second checkout action (#375) by kevin@basistheory.com
 
 ## [1.2.1] - 2025-01-24
 

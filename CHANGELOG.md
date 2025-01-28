@@ -1,12 +1,14 @@
+## [1.3.0] - 2025-01-28
+
+### Features
+
+- 77f1130 2025-01-28 feat: logging improvements (#372) by lucas@basistheory.com
+
 ## [1.2.5] - 2025-01-27
 
 ### Bug Fixes
 
 - 32961d4 2025-01-27 fix: sync up with last release (#376) by kevin@basistheory.com
-
-### Chores
-
-- cb0964a 2025-01-27 chore(release): 1.0.0 [skip ci] by platform@basistheory.com
 
 ## [1.2.4] - 2025-01-27
 

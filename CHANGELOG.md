@@ -1,3 +1,9 @@
+## [1.3.1] - 2025-01-29
+
+### Bug Fixes
+
+- 94b96cf 2025-01-29 fix: add status to detokenize response msg (#378) by lucas@basistheory.com
+
 ## [1.3.0] - 2025-01-28
 
 ### Features

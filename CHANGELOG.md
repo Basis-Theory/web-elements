@@ -1,3 +1,9 @@
+## [1.4.0] - 2025-02-03
+
+### Features
+
+- 1a231c7 2025-01-31 feat: add debug object (#380) by lucas@basistheory.com
+
 ## [1.3.1] - 2025-01-29
 
 ### Bug Fixes

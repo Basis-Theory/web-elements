@@ -1,5 +1,6 @@
 import { loadElements } from './elements';
 import { BasisTheoryElements } from './types/elements';
+import { version } from './version';
 
 interface BasisTheoryInitOptions {
   _devMode?: boolean;
@@ -20,14 +21,16 @@ const basistheory = async (
 
   const env = options?._devMode ? TEST_ENV : DEFAULT_ENV;
 
-  const elements = await loadElements(`https://${env}/elements`);
+  const elements = await loadElements(
+    `https://${env}/web-elements/${version}/client/index.js`
+  );
 
   return elements.init(
     apiKey,
-    `https://${env}/hosted-elements`,
+    `https://${env}/web-elements/${version}/hosted-elements/`,
     false,
-    options?.useSameOriginApi ?? false,
-    options?.disableTelemetry ?? false
+    false,
+    false
   );
 };
 

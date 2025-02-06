@@ -1,3 +1,14 @@
+## [1.5.0] - 2025-02-06
+
+### Features
+
+- d9c1408 2025-02-04 feat: adds versioning (#379) by kevin@basistheory.com
+
+### Bug Fixes
+
+- 429a5c8 2025-02-04 test: update playwright fixtures (#382) by kevin@basistheory.com
+- d609a6a 2025-02-04 fix: deploy versioned client/hosted (#381) by kevin@basistheory.com
+
 ## [1.4.0] - 2025-02-03
 
 ### Features

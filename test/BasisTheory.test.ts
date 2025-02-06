@@ -1,5 +1,6 @@
 import { basistheory } from '~/BasisTheory';
 import { loadElements } from '~/elements';
+import { version } from '../src/version';
 
 jest.mock('~/elements', () => ({
   loadElements: jest.fn(),
@@ -28,11 +29,11 @@ describe('BasisTheory', () => {
     const result = await basistheory(apiKey, options);
 
     expect(mockLoadElements).toHaveBeenCalledWith(
-      `https://js.flock-dev.com/elements`
+      `https://js.flock-dev.com/web-elements/${version}/client/index.js`
     );
     expect(mockElements.init).toHaveBeenCalledWith(
       apiKey,
-      `https://js.flock-dev.com/hosted-elements`,
+      `https://js.flock-dev.com/web-elements/${version}/hosted-elements/`,
       false,
       false,
       false
@@ -51,11 +52,11 @@ describe('BasisTheory', () => {
     await basistheory(apiKey);
 
     expect(mockLoadElements).toHaveBeenCalledWith(
-      `https://js.basistheory.com/elements`
+      `https://js.basistheory.com/web-elements/${version}/client/index.js`
     );
     expect(mockElements.init).toHaveBeenCalledWith(
       apiKey,
-      `https://js.basistheory.com/hosted-elements`,
+      `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       false,
       false
@@ -72,7 +73,7 @@ describe('BasisTheory', () => {
       'Failed to load elements'
     );
     expect(mockLoadElements).toHaveBeenCalledWith(
-      `https://js.basistheory.com/elements`
+      `https://js.basistheory.com/web-elements/${version}/client/index.js`
     );
   });
 
@@ -86,11 +87,11 @@ describe('BasisTheory', () => {
 
     await expect(basistheory(apiKey)).rejects.toThrow('Initialization failed');
     expect(mockLoadElements).toHaveBeenCalledWith(
-      `https://js.basistheory.com/elements`
+      `https://js.basistheory.com/web-elements/${version}/client/index.js`
     );
     expect(mockElements.init).toHaveBeenCalledWith(
       apiKey,
-      `https://js.basistheory.com/hosted-elements`,
+      `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       false,
       false

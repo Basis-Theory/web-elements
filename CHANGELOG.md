@@ -1,3 +1,13 @@
+## [1.6.0] - 2025-02-11
+
+### Features
+
+- 95bd0a5 2025-02-11 feat: adds sessions.create (#385) by kevin@basistheory.com
+
+### Bug Fixes
+
+- e692cd8 2025-02-11 fix: fix double log (#387) by lucas@basistheory.com
+
 ## [1.5.0] - 2025-02-06
 
 ### Features

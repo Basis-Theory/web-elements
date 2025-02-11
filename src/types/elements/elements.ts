@@ -29,6 +29,7 @@ import type {
   DataElementReference,
   ElementMetadata,
 } from './shared';
+import { Sessions } from './services/sessions';
 
 interface BaseElement<UpdateOptions, ElementEvents> {
   readonly mounted: boolean;
@@ -103,6 +104,7 @@ type ElementValue =
 interface BasisTheoryElements {
   tokens: Tokens;
   proxy: Proxy;
+  sessions: Sessions;
   tokenIntents: TokenIntents;
   tokenize: Tokenize;
   client: HttpClient;

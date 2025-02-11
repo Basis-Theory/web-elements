@@ -164,6 +164,7 @@ const loadElements = (
         return;
       }
 
+      // TODO refactor/remove this fallback
       let url = `https://${process.env.JS_HOST}/elements`;
 
       if (typeof elementsClientUrl !== 'undefined') {

@@ -29,8 +29,8 @@ const basistheory = async (
     apiKey,
     `https://${env}/web-elements/${version}/hosted-elements/`,
     false,
-    false,
-    false
+    options?.disableTelemetry ?? false,
+    options?.useSameOriginApi ?? false
   );
 };
 

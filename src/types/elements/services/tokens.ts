@@ -1,9 +1,9 @@
-import type { ElementValue } from '~/types/elements';
+import type { ElementValue } from '../../elements';
 import type {
   CreateToken as CreateTokenModel,
   UpdateToken as UpdateTokenModel,
   Token,
-} from '~/types/models';
+} from '../../models';
 import { Create, Retrieve, Update } from './shared';
 
 type CreateToken = CreateTokenModel<ElementValue>;

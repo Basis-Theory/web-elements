@@ -1,7 +1,7 @@
 import type {
   BasisTheoryElements,
   BasisTheoryElementsInternal,
-} from '~/types/elements';
+} from '../types/elements';
 import {
   ELEMENTS_NON_DOM_ERROR_MESSAGE,
   ELEMENTS_SCRIPT_LOAD_ERROR_MESSAGE,

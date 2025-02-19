@@ -1,4 +1,4 @@
-import { getOrCreateScriptElement } from '~/elements/getOrCreateScriptElement';
+import { getOrCreateScriptElement } from '../src/elements';
 
 describe('Script', () => {
   afterEach(() => {

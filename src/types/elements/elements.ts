@@ -1,4 +1,4 @@
-import type { HttpClient } from '~/types/sdk';
+import type { HttpClient } from '../../types/sdk';
 import type {
   CardElementEvents,
   CardExpirationDateElementEvents,

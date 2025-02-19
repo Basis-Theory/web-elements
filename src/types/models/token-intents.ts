@@ -3,7 +3,7 @@ import type {
   DataObject,
   Auditable,
   TokenType,
-} from '~/types/models';
+} from '../../types/models';
 
 interface TokenIntentCardDetails {
   type: 'card';

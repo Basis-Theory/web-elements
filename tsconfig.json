@@ -2,14 +2,11 @@
   "include": ["src/**/*"],
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
     "declaration": true,
     "outDir": "dist/types",
     "target": "ESNext",
-    "types": ["node", "jest"],
-    "rootDir": "./src",
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    "types": ["node", "jest"]
   }
 }

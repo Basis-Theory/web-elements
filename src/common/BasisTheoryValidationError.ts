@@ -1,4 +1,4 @@
-import type { FieldError } from '~/types/elements';
+import type { FieldError } from '../types/elements';
 
 export class BasisTheoryValidationError<
   Details = Record<string, unknown>

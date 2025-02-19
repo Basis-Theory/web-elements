@@ -1,3 +1,11 @@
+## [1.7.0] - 2025-02-19
+
+### Features
+
+- b2dd527 2025-02-19 feat: improve logging when retrieving values from unmounted components (#391) by kevin@basistheory.com
+- 4b95046 2025-02-18 feat: add more logs around element value resolution/timeouts (#390) by kevin@basistheory.com
+- 73670c3 2025-02-13 feat: add react-elements (#386) by kevin@basistheory.com
+
 ## [1.6.0] - 2025-02-11
 
 ### Features

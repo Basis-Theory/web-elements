@@ -8,7 +8,7 @@ module.exports = {
       clearMocks: true,
       coveragePathIgnorePatterns: ['test', 'dist'],
       displayName: 'jsdom',
-      moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+      moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths ?? {}),
       modulePaths: ['<rootDir>'],
       roots: ['<rootDir>'],
       testEnvironment: 'jsdom',

@@ -1,8 +1,8 @@
-import { basistheory } from '~/BasisTheory';
-import { loadElements } from '~/elements';
+import { basistheory } from '../src';
+import { loadElements } from '../src/elements';
 import { version } from '../src/version';
 
-jest.mock('~/elements', () => ({
+jest.mock('../src/elements', () => ({
   loadElements: jest.fn(),
 }));
 

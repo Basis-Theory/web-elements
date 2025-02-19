@@ -15,7 +15,7 @@ const basistheory = async (
   apiKey: string,
   options?: BasisTheoryInitOptions
 ): Promise<BasisTheoryElements | undefined> => {
-  if (!apiKey) {
+  if (!apiKey || apiKey.length === 0) {
     throw new Error('API key is required');
   }
 

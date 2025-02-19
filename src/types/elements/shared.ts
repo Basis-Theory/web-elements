@@ -2,7 +2,7 @@ import {
   AUTOCOMPLETE_VALUES,
   CARD_BRANDS,
   CARD_ICON_POSITIONS,
-} from '~/elements/constants';
+} from '../../elements/constants';
 
 type FieldErrorType = 'incomplete' | 'invalid';
 

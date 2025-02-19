@@ -1,8 +1,8 @@
-import type { ElementValue } from '~/types/elements';
+import type { ElementValue } from '../../elements';
 import type {
   CreateTokenIntent as CreateTokenIntentModel,
   TokenIntent,
-} from '~/types/models';
+} from '../../models';
 import { Create } from './shared';
 
 type CreateTokenIntent = CreateTokenIntentModel<ElementValue>;

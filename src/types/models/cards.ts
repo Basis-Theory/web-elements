@@ -5,4 +5,10 @@ interface Card {
   cvc?: string;
 }
 
-export type { Card };
+interface IssuerCountry {
+  alpha2: string;
+  name: string;
+  numeric: string;
+}
+
+export type { Card, IssuerCountry };

@@ -3,6 +3,7 @@ import type {
   DataObject,
   Auditable,
   TokenType,
+  IssuerCountry,
 } from '../../types/models';
 
 interface TokenIntentCardDetails {
@@ -14,6 +15,7 @@ interface TokenIntentCardDetails {
     funding: string;
     expirationMonth: number;
     expirationYear: number;
+    issuerCountry?: IssuerCountry;
   };
 }
 

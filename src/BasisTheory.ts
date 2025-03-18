@@ -6,6 +6,7 @@ interface BasisTheoryInitOptions {
   _devMode?: boolean;
   disableTelemetry?: boolean;
   useSameOriginApi?: boolean;
+  debug?: boolean;
 }
 
 const TEST_ENV = 'js.flock-dev.com';
@@ -29,8 +30,9 @@ const basistheory = async (
     apiKey,
     `https://${env}/web-elements/${version}/hosted-elements/`,
     false,
+    options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,
-    options?.useSameOriginApi ?? false
+    options?.debug ?? false
   );
 };
 

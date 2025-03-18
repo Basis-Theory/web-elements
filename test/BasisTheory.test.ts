@@ -35,6 +35,7 @@ describe('BasisTheory', () => {
       apiKey,
       `https://js.flock-dev.com/web-elements/${version}/hosted-elements/`,
       false,
+      true,
       false,
       false
     );
@@ -58,6 +59,7 @@ describe('BasisTheory', () => {
       apiKey,
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
+      true,
       false,
       false
     );
@@ -93,6 +95,7 @@ describe('BasisTheory', () => {
       apiKey,
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
+      true,
       false,
       false
     );

@@ -1,6 +1,6 @@
 {
   "name": "@basis-theory/web-elements",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "repository": "https://github.com/basis-theory/web-elements",
   "license": "Apache-2.0",
   "author": {
@@ -16,8 +16,8 @@
   ],
   "scripts": {
     "prebuild": "TARGET_DIR=../../web-elements/src node ../scripts/web-elements/write-version-file.js",
-    "build:dev": "yarn clean && yarn generateTypes && parcel build && npx size-limit && yarn generate-sri",
-    "build": "node ../scripts/web-elements/prepare.js && yarn generateTypes && parcel build --no-cache && yarn generate-sri",
+    "build:dev": "yarn clean && parcel build && yarn generateTypes && npx size-limit && yarn generate-sri",
+    "build": "node ../scripts/web-elements/prepare.js && parcel build --no-cache && yarn generateTypes && yarn generate-sri",
     "clean": "rimraf dist .parcel-cache",
     "generateTypes": "tsc --emitDeclarationOnly",
     "generate-sri": "node ../scripts/web-elements/generate-sri.js",

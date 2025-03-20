@@ -3,7 +3,6 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "composite": true,
     "declaration": true,
     "outDir": "dist/types",
     "target": "ESNext",

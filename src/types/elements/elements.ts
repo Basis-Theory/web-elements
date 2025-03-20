@@ -106,7 +106,7 @@ interface BasisTheoryElements {
   proxy: Proxy;
   sessions: Sessions;
   tokenIntents: TokenIntents;
-  tokenize: Tokenize;
+  tokenize: Tokenize['tokenize'];
   client: HttpClient;
 
   createElement(type: 'card', options?: CreateCardElementOptions): CardElement;

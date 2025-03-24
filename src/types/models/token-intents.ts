@@ -47,4 +47,8 @@ type CreateTokenIntent<DataType = DataObject> = Pick<
   'type' | 'data'
 >;
 
-export type { TokenIntent, CreateTokenIntent, TokenIntentCardDetails };
+export type {
+  TokenIntent,
+  CreateTokenIntent as CreateTokenIntentModel,
+  TokenIntentCardDetails,
+};

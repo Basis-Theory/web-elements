@@ -14,4 +14,8 @@ type TokenizeData<DataType = Primitive> =
   | TokenizeArray<DataType>
   | TokenizeObject<DataType>;
 
-export type { TokenizeObject, TokenizeArray, TokenizeData };
+export type {
+  TokenizeObject,
+  TokenizeArray,
+  TokenizeData as TokenizeDataModel,
+};

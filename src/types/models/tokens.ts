@@ -91,8 +91,8 @@ type UpdateToken<DataType = Primitive> = Partial<
 export type {
   Token,
   TokenEnrichments,
-  CreateToken,
-  UpdateToken,
+  CreateToken as CreateTokenModel,
+  UpdateToken as UpdateTokenModel,
   DataClassification,
   DataImpactLevel,
   DataRestrictionPolicy,

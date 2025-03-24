@@ -1,5 +1,5 @@
 import type { ElementValue } from '../';
-import type { TokenizeData as TokenizeDataModel } from '../../models';
+import type { TokenizeDataModel } from '../../models';
 import { RequestOptions } from './shared';
 
 type TokenizeData = TokenizeDataModel<ElementValue>;

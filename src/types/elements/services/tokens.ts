@@ -6,7 +6,7 @@ type CreateToken = CreateTokenModel<ElementValue>;
 type UpdateToken = UpdateTokenModel<ElementValue>;
 
 type Tokens = Create<Token, CreateToken> &
-  Retrieve<Token<unknown>> &
+  Retrieve<Token<any>> &
   Update<Token, UpdateToken>;
 
 export type { Tokens, CreateToken, UpdateToken };

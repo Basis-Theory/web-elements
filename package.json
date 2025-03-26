@@ -1,6 +1,6 @@
 {
   "name": "@basis-theory/web-elements",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "repository": "https://github.com/basis-theory/web-elements",
   "license": "Apache-2.0",
   "author": {
@@ -16,10 +16,9 @@
   ],
   "scripts": {
     "prebuild": "TARGET_DIR=../../web-elements/src node ../scripts/web-elements/write-version-file.js",
-    "build:dev": "yarn clean && parcel build && yarn generateTypes && npx size-limit && yarn generate-sri",
-    "build": "node ../scripts/web-elements/prepare.js && parcel build --no-cache && yarn generateTypes && yarn generate-sri",
+    "build:dev": "yarn clean && parcel build && npx size-limit && yarn generate-sri",
+    "build": "node ../scripts/web-elements/prepare.js && parcel build --no-cache && yarn generate-sri",
     "clean": "rimraf dist .parcel-cache",
-    "generateTypes": "tsc --emitDeclarationOnly",
     "generate-sri": "node ../scripts/web-elements/generate-sri.js",
     "lint-staged": "lint-staged",
     "lint:fix": "eslint --fix",
@@ -73,11 +72,10 @@
     }
   ],
   "devDependencies": {
-    "@parcel/packager-ts": "2.13.2",
-    "@parcel/transformer-typescript-types": "2.13.2",
+    "@parcel/packager-ts": "2.14.2",
+    "@parcel/transformer-typescript-types": "2.14.2",
     "@size-limit/preset-small-lib": "^11.1.6",
-    "parcel": "^2.13.2",
-    "ts-jest": "^29.2.5",
-    "typescript": "^5.7.2"
+    "parcel": "^2.14.2",
+    "ts-jest": "^29.2.5"
   }
 }

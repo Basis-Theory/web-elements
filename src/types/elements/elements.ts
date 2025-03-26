@@ -144,11 +144,11 @@ declare global {
 
 export type {
   BaseElement,
-  CardElement,
-  TextElement,
-  CardNumberElement,
-  CardExpirationDateElement,
-  CardVerificationCodeElement,
+  CardElement as ICardElement,
+  TextElement as ITextElement,
+  CardNumberElement as ICardNumberElement,
+  CardExpirationDateElement as ICardExpirationDateElement,
+  CardVerificationCodeElement as ICardVerificationCodeElement,
   ElementWrapper,
   ElementValue,
   BasisTheoryElements,

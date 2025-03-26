@@ -19,7 +19,15 @@ interface TokenIntentCardDetails {
   };
 }
 
-type TokenTypesForTokenIntents = Exclude<TokenType, 'token' | 'card'>;
+interface TokenIntentBankDetails {
+  type: 'bank';
+  bank: {
+    routingNumber: string;
+    accountNumberLast4: string;
+  };
+}
+
+type TokenTypesForTokenIntents = Exclude<TokenType, 'token' | 'card' | 'bank'>;
 
 type TokenTypeMap = {
   [K in TokenTypesForTokenIntents]: {
@@ -37,6 +45,7 @@ type TokenIntent<DataType = DataObject> = (TokenBase<DataType> &
   (
     | TokenTypeMap[TokenTypesForTokenIntents]
     | TokenIntentCardDetails
+    | TokenIntentBankDetails
     | {
         type: 'token';
       }

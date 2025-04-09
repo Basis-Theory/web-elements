@@ -1,20 +1,22 @@
 <html>
   <head>
     <title>Credit Card example</title>
-    <script src="https://js.flock-dev.com/web-elements/latest/index.js"></script>
+    <script src="https://js.basistheory.com/web-elements/latest/index.js"></script>
   </head>
   <body>
     <div id="card-element"></div>
 
     <button onclick="validate()">validate</button>
-    <button onclick="proxy()">proxy</button>
+    <button onclick="createToken()">create token</button>
 
     <script defer>
       let bt;
       let cardElement;
 
       window.addEventListener('load', async function () {
-        bt = await basistheory('123', { _devMode: true });
+        bt = await basistheory('<API_KEY>', {
+          _devMode: true,
+        });
 
         cardElement = bt.createElement('card', {
           validateOnChange: true,
@@ -27,15 +29,13 @@
         });
       });
 
-      proxy = () => {
-        bt.proxy.post({
-          headers: {
-            'BT-PROXY-URL': 'https://httpbin.org/post',
-          },
-          body: {
-            card: cardElement,
-          },
+      createToken = async () => {
+        const token = await bt.tokens.create({
+          type: 'card',
+          data: cardElement,
         });
+
+        console.log(token);
       };
 
       validate = () => {

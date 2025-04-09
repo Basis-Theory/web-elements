@@ -1,6 +1,3 @@
-const ELEMENTS_INIT_ERROR_MESSAGE =
-  'BasisTheory Elements was not properly initialized.';
-
 const ELEMENTS_NON_DOM_ERROR_MESSAGE =
   'Tried to load BasisTheoryElements in a non-DOM environment.';
 
@@ -100,7 +97,6 @@ export {
   AUTOCOMPLETE_VALUES,
   CARD_BRANDS,
   CARD_ICON_POSITIONS,
-  ELEMENTS_INIT_ERROR_MESSAGE,
   ELEMENTS_NON_DOM_ERROR_MESSAGE,
   ELEMENTS_SCRIPT_FAILED_TO_DELIVER,
   ELEMENTS_SCRIPT_LOAD_ERROR_MESSAGE,

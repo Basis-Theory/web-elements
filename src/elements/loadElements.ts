@@ -141,7 +141,7 @@ const loadScript = (
   });
 
 const loadElements = (
-  elementsClientUrl?: string
+  elementsUrl: string
 ): Promise<BasisTheoryElementsInternal> => {
   if (!elementsPromise) {
     elementsPromise = new Promise((resolve, reject) => {
@@ -164,28 +164,7 @@ const loadElements = (
         return;
       }
 
-      // TODO refactor/remove this fallback
-      let url = `https://${process.env.JS_HOST}/elements`;
-
-      if (typeof elementsClientUrl !== 'undefined') {
-        try {
-          const urlObject = new URL(elementsClientUrl);
-
-          url = urlObject.toString().replace(/\/$/u, '');
-        } catch {
-          (async () => {
-            await logger.log.warn(
-              'Invalid format for the given Elements client url.',
-              {
-                logType: 'invalidClientUrlError',
-                logOrigin: 'loadElements',
-              }
-            );
-          })();
-
-          throw new Error('Invalid format for the given Elements client url.');
-        }
-      }
+      const url = new URL(elementsUrl).toString().replace(/\/$/u, '');
 
       loadScript(url, 0)
         .then(resolve)

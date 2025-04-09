@@ -1,24 +1,23 @@
-const DEFAULT_BASE_URL = `https://${process.env.API_HOST}`;
-
 export const logger = (() => {
   const ddTok = 'pubb96b84a13912504f4354f2d794ea4fab';
 
-  let isTelemetryEnabled = process.env.NODE_ENV !== 'test';
+  let _disableTelemetry = process?.env.NODE_ENV !== 'test';
+  let _baseUrl: string | undefined;
 
   const _log = async (
     message: string,
     level: string,
     attributes = {}
   ): Promise<void> => {
-    if (!isTelemetryEnabled) {
+    if (_disableTelemetry) {
       return;
     }
 
     let env;
 
-    if (DEFAULT_BASE_URL.includes('localhost')) {
+    if (!_baseUrl || _baseUrl?.includes('localhost')) {
       env = 'local';
-    } else if (DEFAULT_BASE_URL.includes('dev')) {
+    } else if (_baseUrl.includes('dev')) {
       env = 'dev';
     } else {
       env = 'prod';
@@ -43,6 +42,10 @@ export const logger = (() => {
       ...attributes,
     };
 
+    if (['local', 'dev'].includes(env)) {
+      console.log(payload);
+    }
+
     try {
       await fetch(`https://http-intake.logs.datadoghq.com/v1/input/${ddTok}`, {
         method: 'POST',
@@ -57,12 +60,17 @@ export const logger = (() => {
     }
   };
 
-  const setTelemetryEnabled = (enabled: boolean): void => {
-    isTelemetryEnabled = enabled;
+  const disableTelemetry = (val: boolean): void => {
+    _disableTelemetry = val;
+  };
+
+  const setBaseUrl = (baseUrl?: string): void => {
+    _baseUrl = baseUrl;
   };
 
   return {
-    setTelemetryEnabled,
+    disableTelemetry,
+    setBaseUrl,
     log: {
       error: (message: string, attributes = {}) =>
         _log(message, 'error', attributes),

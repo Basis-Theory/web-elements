@@ -1,3 +1,4 @@
+import { logger } from './common/logging';
 import { loadElements } from './elements';
 import { BasisTheoryElements } from './types/elements';
 import { version } from './version';
@@ -20,15 +21,18 @@ const basistheory = async (
     throw new Error('API key is required');
   }
 
-  const env = options?._devMode ? TEST_ENV : DEFAULT_ENV;
+  const baseUrl = options?._devMode ? TEST_ENV : DEFAULT_ENV;
+
+  logger.setBaseUrl(baseUrl);
+  logger.disableTelemetry(Boolean(options?.disableTelemetry));
 
   const elements = await loadElements(
-    `https://${env}/web-elements/${version}/client/index.js`
+    `https://${baseUrl}/web-elements/${version}/client/index.js`
   );
 
   return elements.init(
     apiKey,
-    `https://${env}/web-elements/${version}/hosted-elements/`,
+    `https://${baseUrl}/web-elements/${version}/hosted-elements/`,
     false,
     options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,

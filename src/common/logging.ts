@@ -1,7 +1,7 @@
 export const logger = (() => {
   const ddTok = 'pubb96b84a13912504f4354f2d794ea4fab';
 
-  let _disableTelemetry = process?.env.NODE_ENV !== 'test';
+  let _disableTelemetry: boolean | undefined;
   let _baseUrl: string | undefined;
 
   const _log = async (

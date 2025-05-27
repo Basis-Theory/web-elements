@@ -39,6 +39,7 @@ type CreditCardType = {
   patterns: (number | [number, number])[];
   type: CardBrandId | string;
 };
+
 const VISA: CreditCardType = {
   niceType: 'Visa',
   type: 'visa',
@@ -49,7 +50,7 @@ const VISA: CreditCardType = {
     name: 'CVV',
     size: 3,
   },
-};
+} as const;
 
 const MASTERCARD: CreditCardType = {
   niceType: 'Mastercard',
@@ -61,7 +62,7 @@ const MASTERCARD: CreditCardType = {
     name: 'CVC',
     size: 3,
   },
-};
+} as const;
 
 const AMERICAN_EXPRESS: CreditCardType = {
   niceType: 'American Express',
@@ -73,7 +74,7 @@ const AMERICAN_EXPRESS: CreditCardType = {
     name: 'CID',
     size: 4,
   },
-};
+} as const;
 
 const DINERS_CLUB: CreditCardType = {
   niceType: 'Diners Club',
@@ -85,7 +86,7 @@ const DINERS_CLUB: CreditCardType = {
     name: 'CVV',
     size: 3,
   },
-};
+} as const;
 
 const DISCOVER: CreditCardType = {
   niceType: 'Discover',
@@ -97,7 +98,7 @@ const DISCOVER: CreditCardType = {
     name: 'CID',
     size: 3,
   },
-};
+} as const;
 
 const JCB: CreditCardType = {
   niceType: 'JCB',
@@ -109,7 +110,7 @@ const JCB: CreditCardType = {
     name: 'CVV',
     size: 3,
   },
-};
+} as const;
 
 const UNION_PAY: CreditCardType = {
   niceType: 'UnionPay',
@@ -144,7 +145,7 @@ const UNION_PAY: CreditCardType = {
     name: 'CVN',
     size: 3,
   },
-};
+} as const;
 
 const MAESTRO: CreditCardType = {
   niceType: 'Maestro',
@@ -165,7 +166,7 @@ const MAESTRO: CreditCardType = {
     name: 'CVC',
     size: 3,
   },
-};
+} as const;
 
 const ELO: CreditCardType = {
   niceType: 'Elo',
@@ -203,7 +204,7 @@ const ELO: CreditCardType = {
     name: 'CVE',
     size: 3,
   },
-};
+} as const;
 
 const MIR: CreditCardType = {
   niceType: 'Mir',
@@ -215,7 +216,7 @@ const MIR: CreditCardType = {
     name: 'CVP2',
     size: 3,
   },
-};
+} as const;
 
 const HIPER: CreditCardType = {
   niceType: 'Hiper',
@@ -227,7 +228,7 @@ const HIPER: CreditCardType = {
     name: 'CVC',
     size: 3,
   },
-};
+} as const;
 
 const HIPERCARD: CreditCardType = {
   niceType: 'Hipercard',
@@ -239,7 +240,7 @@ const HIPERCARD: CreditCardType = {
     name: 'CVC',
     size: 3,
   },
-};
+} as const;
 
 const DEFAULT_CARD_TYPES: CreditCardType[] = [
   VISA,
@@ -254,7 +255,7 @@ const DEFAULT_CARD_TYPES: CreditCardType[] = [
   MIR,
   HIPER,
   HIPERCARD,
-];
+] as const;
 
 export {
   AMERICAN_EXPRESS,

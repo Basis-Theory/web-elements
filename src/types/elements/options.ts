@@ -51,6 +51,7 @@ interface SanitizedElementOptions {
   skipLuhnValidation?: boolean;
   style?: ElementStyle;
   targetId?: string;
+  title?: string;
   transform?: [RegExp, string] | null;
   validateOnChange?: boolean;
   validation?: RegExp;
@@ -106,8 +107,18 @@ interface CardExpirationDateValue<T extends ElementValueType> {
   year: T extends 'reference' ? DataElementReference : number;
 }
 
-type CreateCardElementOptions = CustomizableElementOptions &
+interface CardElementAutoComplete {
+  number: AutoCompleteValue;
+  expirationDate: AutoCompleteValue;
+  csc: AutoCompleteValue;
+}
+
+type CreateCardElementOptions = Omit<
+  CustomizableElementOptions,
+  'autoComplete'
+> &
   Pick<ElementOptions, 'cardTypes' | 'skipLuhnValidation'> & {
+    autoComplete?: CardElementAutoComplete;
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
   };
@@ -173,6 +184,7 @@ type UpdateCardVerificationCodeElementOptions = Omit<
 >;
 
 export type {
+  CardElementAutoComplete,
   CardElementPlaceholder,
   CardElementValue,
   CardExpirationDateValue,

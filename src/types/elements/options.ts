@@ -117,7 +117,7 @@ type CreateCardElementOptions = Omit<
   CustomizableElementOptions,
   'autoComplete'
 > &
-  Pick<ElementOptions, 'cardTypes' | 'skipLuhnValidation'> & {
+  Pick<ElementOptions, 'cardTypes' | 'skipLuhnValidation' | 'title'> & {
     autoComplete?: CardElementAutoComplete;
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
@@ -131,7 +131,7 @@ type UpdateCardElementOptions = Omit<
 type CreateTextElementOptions = CustomizableElementOptions &
   Pick<
     ElementOptions,
-    'placeholder' | 'mask' | 'maxLength' | 'password' | 'validation'
+    'placeholder' | 'mask' | 'maxLength' | 'password' | 'validation' | 'title'
   > &
   TransformOption &
   Required<Pick<ElementOptions, 'targetId'>> & {
@@ -147,7 +147,11 @@ type UpdateTextElementOptions = Omit<
 type CreateCardNumberElementOptions = CustomizableElementOptions &
   Pick<
     ElementOptions,
-    'placeholder' | 'iconPosition' | 'cardTypes' | 'skipLuhnValidation'
+    | 'placeholder'
+    | 'iconPosition'
+    | 'cardTypes'
+    | 'skipLuhnValidation'
+    | 'title'
   > &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
@@ -160,7 +164,7 @@ type UpdateCardNumberElementOptions = Omit<
 >;
 
 type CreateCardExpirationDateElementOptions = CustomizableElementOptions &
-  Pick<ElementOptions, 'placeholder'> &
+  Pick<ElementOptions, 'title' | 'placeholder'> &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
     value?: CardExpirationDateValue<'static'> | string;
@@ -172,7 +176,7 @@ type UpdateCardExpirationDateElementOptions = Omit<
 >;
 
 type CreateCardVerificationCodeElementOptions = CustomizableElementOptions &
-  Pick<ElementOptions, 'placeholder' | 'cardBrand'> &
+  Pick<ElementOptions, 'placeholder' | 'title' | 'cardBrand'> &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
     value?: string;

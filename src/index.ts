@@ -19,3 +19,4 @@ if (
 
 export * from './BasisTheory';
 export * from './types';
+export * from './common';

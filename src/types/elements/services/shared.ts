@@ -24,4 +24,8 @@ type Delete = {
   delete(id: string, options?: RequestOptions): Promise<void>;
 };
 
-export { RequestOptions, Create, Retrieve, Update, Delete, Patch };
+type Encrypt<E, T> = {
+  encrypt(model: T, options?: RequestOptions): Promise<E>;
+};
+
+export { RequestOptions, Create, Retrieve, Update, Delete, Patch, Encrypt };

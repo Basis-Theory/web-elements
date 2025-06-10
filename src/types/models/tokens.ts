@@ -90,6 +90,19 @@ type UpdateToken<DataType = Primitive> = Partial<
   }
 >;
 
+type EncryptToken<DataType = Primitive> = {
+  tokenRequests:
+    | { [key: string]: Pick<CreateToken<DataType>, 'data' | 'type'> }
+    | Pick<CreateToken<DataType>, 'data' | 'type'>;
+  public_key: string;
+  key_id: string;
+};
+
+type EncryptedToken = {
+  encrypted: string;
+  type: TokenBase['type'];
+};
+
 export type {
   Token,
   TokenEnrichments,
@@ -98,6 +111,8 @@ export type {
   DataClassification,
   DataImpactLevel,
   DataRestrictionPolicy,
+  EncryptToken as EncryptTokenModel,
+  EncryptedToken,
 };
 
 export { DATA_CLASSIFICATIONS, DATA_IMPACT_LEVELS, DATA_RESTRICTION_POLICIES };

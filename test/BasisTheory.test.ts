@@ -17,7 +17,7 @@ describe('BasisTheory', () => {
     await expect(basistheory('')).rejects.toThrow('API key is required');
   });
 
-  it('should call loadElements with TEST_ENV when _devMode is true', async () => {
+  it('should call loadElements with dev url when _devMode is true', async () => {
     const mockElements = {
       init: jest.fn().mockResolvedValue('mocked-elements'),
     };
@@ -42,7 +42,7 @@ describe('BasisTheory', () => {
     expect(result).toBe('mocked-elements');
   });
 
-  it('should call loadElements with DEFAULT_ENV when _devMode is false or undefined', async () => {
+  it('should call loadElements with prod url when _devMode is false or undefined', async () => {
     const mockElements = {
       init: jest.fn().mockResolvedValue('mocked-elements'),
     };
@@ -62,6 +62,33 @@ describe('BasisTheory', () => {
       true,
       false,
       false
+    );
+  });
+
+  it.each([
+    'https://js.flock-dev.com',
+    'https://js.btsandbox.com',
+    'https://js.basistheory.com',
+  ])('should call loadElements with the specified base url', async (baseUrl: string) => {
+    const mockElements = {
+      init: jest.fn().mockResolvedValue('mocked-elements'),
+    };
+    mockLoadElements.mockResolvedValue(mockElements);
+
+    const apiKey = 'test-api-key';
+
+    await basistheory(apiKey, { base_url: baseUrl});
+
+    expect(mockLoadElements).toHaveBeenCalledWith(
+        `${baseUrl}/web-elements/${version}/client/index.js`
+    );
+    expect(mockElements.init).toHaveBeenCalledWith(
+        apiKey,
+        `${baseUrl}/web-elements/${version}/hosted-elements/`,
+        false,
+        true,
+        false,
+        false
     );
   });
 

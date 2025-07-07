@@ -8,10 +8,11 @@ interface BasisTheoryInitOptions {
   disableTelemetry?: boolean;
   useSameOriginApi?: boolean;
   debug?: boolean;
+  base_url?: string;
 }
 
-const TEST_ENV = 'js.flock-dev.com';
-const DEFAULT_ENV = 'js.basistheory.com';
+const DEV_ENV_URL = 'https://js.flock-dev.com';
+const PROD_ENV_URL = "https://js.basistheory.com";
 
 const basistheory = async (
   apiKey: string,
@@ -21,18 +22,18 @@ const basistheory = async (
     throw new Error('API key is required');
   }
 
-  const baseUrl = options?._devMode ? TEST_ENV : DEFAULT_ENV;
+  const baseUrl = options?._devMode ? DEV_ENV_URL : options?.base_url ? options.base_url : PROD_ENV_URL;
 
   logger.setBaseUrl(baseUrl);
   logger.disableTelemetry(Boolean(options?.disableTelemetry));
 
   const elements = await loadElements(
-    `https://${baseUrl}/web-elements/${version}/client/index.js`
+    `${baseUrl}/web-elements/${version}/client/index.js`
   );
 
   return elements.init(
     apiKey,
-    `https://${baseUrl}/web-elements/${version}/hosted-elements/`,
+    `${baseUrl}/web-elements/${version}/hosted-elements/`,
     false,
     options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,

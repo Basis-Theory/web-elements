@@ -101,10 +101,14 @@ type EncryptToken<DataType = Primitive> = {
   key_id: string;
 };
 
-type EncryptedToken = {
+type EncryptedSingleToken = {
   encrypted: string;
   type: TokenBase['type'];
 };
+
+type EncryptedMultipleTokens = Record<string, EncryptedSingleToken>;
+
+type EncryptedToken = EncryptedSingleToken | EncryptedMultipleTokens;
 
 export type {
   Token,

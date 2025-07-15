@@ -23,13 +23,13 @@ import type {
   UpdateCardVerificationCodeElementOptions,
   UpdateTextElementOptions,
 } from './options';
-import type { Proxy, Tokenize, Tokens, TokenIntents } from './services';
+import type { Proxy, TokenIntents, Tokenize, Tokens } from './services';
+import { Sessions } from './services/sessions';
 import type {
   CardMetadata,
   DataElementReference,
   ElementMetadata,
 } from './shared';
-import { Sessions } from './services/sessions';
 
 interface BaseElement<UpdateOptions, ElementEvents> {
   readonly mounted: boolean;
@@ -131,7 +131,8 @@ interface BasisTheoryElementsInternal extends BasisTheoryElements {
     elementsUseNgApi: boolean | undefined,
     elementsUseSameOriginApi: boolean | undefined,
     disableTelemetry: boolean | undefined,
-    debug: boolean | undefined
+    debug: boolean | undefined,
+    useUat: boolean | undefined
   ) => Promise<BasisTheoryElements>;
   hasElement: (payload: unknown) => boolean;
 }
@@ -144,13 +145,13 @@ declare global {
 
 export type {
   BaseElement,
-  CardElement as ICardElement,
-  TextElement as ITextElement,
-  CardNumberElement as ICardNumberElement,
-  CardExpirationDateElement as ICardExpirationDateElement,
-  CardVerificationCodeElement as ICardVerificationCodeElement,
-  ElementWrapper,
-  ElementValue,
   BasisTheoryElements,
   BasisTheoryElementsInternal,
+  ElementValue,
+  ElementWrapper,
+  CardElement as ICardElement,
+  CardExpirationDateElement as ICardExpirationDateElement,
+  CardNumberElement as ICardNumberElement,
+  CardVerificationCodeElement as ICardVerificationCodeElement,
+  TextElement as ITextElement,
 };

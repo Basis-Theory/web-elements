@@ -111,15 +111,15 @@ type EncryptedMultipleTokens = Record<string, EncryptedSingleToken>;
 type EncryptedToken = EncryptedSingleToken | EncryptedMultipleTokens;
 
 export type {
-  Token,
-  TokenEnrichments,
   CreateToken as CreateTokenModel,
-  UpdateToken as UpdateTokenModel,
   DataClassification,
   DataImpactLevel,
   DataRestrictionPolicy,
-  EncryptToken as EncryptTokenModel,
   EncryptedToken,
+  EncryptToken as EncryptTokenModel,
+  Token,
+  TokenEnrichments,
+  UpdateToken as UpdateTokenModel,
 };
 
 export { DATA_CLASSIFICATIONS, DATA_IMPACT_LEVELS, DATA_RESTRICTION_POLICIES };

@@ -10,14 +10,10 @@ type TokenizeObject<DataType = Primitive> = {
 type TokenizeArray<DataType = Primitive> = Array<
   Primitive | TokenizeObject<DataType> | TokenizeArray<DataType> | DataType
 >;
-type TokenizeData<DataType = Primitive> =
+type TokenizeDataModel<DataType = Primitive> =
   | TokenizeArray<DataType>
   | (TokenizeObject<DataType> & {
       _debug?: Record<string, unknown>;
     });
 
-export type {
-  TokenizeObject,
-  TokenizeArray,
-  TokenizeData as TokenizeDataModel,
-};
+export type { TokenizeArray, TokenizeDataModel, TokenizeObject };

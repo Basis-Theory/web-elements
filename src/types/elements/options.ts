@@ -17,8 +17,11 @@ interface ElementInternalOptions {
   apiKey: string | undefined;
   baseUrl: string;
   type: ElementType;
+  debug: boolean | undefined;
+  disableTelemetry: boolean | undefined;
   useNgApi: boolean | undefined;
   useSameOriginApi: boolean | undefined;
+  useUat: boolean | undefined;
 }
 
 enum InputMode {
@@ -73,6 +76,10 @@ interface AutoCompleteOption {
   autoComplete?: AutoCompleteValue;
 }
 
+interface CardAutoCompleteOption {
+  autoComplete?: CardElementAutoComplete;
+}
+
 type CustomizableElementOptions = Pick<
   ElementOptions,
   | 'cardTypes'
@@ -86,6 +93,20 @@ type CustomizableElementOptions = Pick<
   | 'validateOnChange'
 > &
   AutoCompleteOption;
+
+type CardCustomizableElementOptions = Pick<
+  ElementOptions,
+  | 'cardTypes'
+  | 'copyIconStyles'
+  | 'disabled'
+  | 'enableCopy'
+  | 'inputMode'
+  | 'readOnly'
+  | 'skipLuhnValidation'
+  | 'style'
+  | 'validateOnChange'
+> &
+  CardAutoCompleteOption;
 
 type ElementValueType = 'static' | 'reference';
 
@@ -113,12 +134,8 @@ interface CardElementAutoComplete {
   csc: AutoCompleteValue;
 }
 
-type CreateCardElementOptions = Omit<
-  CustomizableElementOptions,
-  'autoComplete'
-> &
+type CreateCardElementOptions = CardCustomizableElementOptions &
   Pick<ElementOptions, 'cardTypes' | 'skipLuhnValidation' | 'title'> & {
-    autoComplete?: CardElementAutoComplete;
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
   };
@@ -188,6 +205,7 @@ type UpdateCardVerificationCodeElementOptions = Omit<
 >;
 
 export type {
+  CardCustomizableElementOptions,
   CardElementAutoComplete,
   CardElementPlaceholder,
   CardElementValue,

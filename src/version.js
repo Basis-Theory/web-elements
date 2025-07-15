@@ -1,3 +1,2 @@
-const version = '1.19.0';
-
-module.exports = { version };
+// Auto-generated version file
+export const version = '1.20.0';

@@ -1,11 +1,11 @@
-import type { ElementValue } from '../elements';
 import type {
   CreateTokenModel,
-  UpdateTokenModel,
-  Token,
   EncryptTokenModel,
   EncryptedToken,
+  Token,
+  UpdateTokenModel,
 } from '../../models';
+import type { ElementValue } from '../elements';
 import { Create, Encrypt, Retrieve, Update } from './shared';
 
 type CreateToken = CreateTokenModel<ElementValue>;
@@ -17,4 +17,4 @@ type Tokens = Create<Token, CreateToken> &
   Update<Token, UpdateToken> &
   Encrypt<EncryptedToken, EncryptToken>;
 
-export type { Tokens, CreateToken, UpdateToken };
+export type { CreateToken, Tokens, UpdateToken };

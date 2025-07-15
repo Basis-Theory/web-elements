@@ -6,6 +6,11 @@ jest.mock('../src/elements', () => ({
   loadElements: jest.fn(),
 }));
 
+jest.mock('../src/urls', () => ({
+  CLIENT_JS_URL: null,
+  HOSTED_ELEMENTS_BASE_URL: null,
+}));
+
 describe('BasisTheory', () => {
   const mockLoadElements = loadElements as jest.Mock;
 
@@ -37,6 +42,7 @@ describe('BasisTheory', () => {
       false,
       true,
       false,
+      false,
       false
     );
     expect(result).toBe('mocked-elements');
@@ -60,6 +66,57 @@ describe('BasisTheory', () => {
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       true,
+      false,
+      false,
+      false
+    );
+  });
+
+  it('should use build-time URLs when available', async () => {
+    // Test the URL logic directly by creating a scenario where build-time URLs exist
+    // We'll temporarily modify the imported module's behavior
+
+    // Mock the URLs module to return build-time URLs
+    const mockUrls = {
+      CLIENT_JS_URL:
+        'https://js.flock-dev.com/web-elements/pr-123/client/index.js',
+      HOSTED_ELEMENTS_BASE_URL:
+        'https://js.flock-dev.com/web-elements/pr-123/hosted-elements/',
+    };
+
+    // Use jest.mock to replace the urls module for this test
+    jest.resetModules();
+    jest.doMock('../src/urls', () => mockUrls);
+
+    // Re-setup the loadElements mock after reset
+    const mockElements = {
+      init: jest.fn().mockResolvedValue('mocked-elements'),
+    };
+    jest.doMock('../src/elements', () => ({
+      loadElements: jest.fn().mockResolvedValue(mockElements),
+    }));
+
+    // Import the module after mocking
+    const { basistheory: basistheoryWithUrls } = await import(
+      '../src/BasisTheory'
+    );
+    const { loadElements: mockLoadElementsLocal } = await import(
+      '../src/elements'
+    );
+
+    const apiKey = 'test-api-key';
+
+    await basistheoryWithUrls(apiKey);
+
+    expect(mockLoadElementsLocal).toHaveBeenCalledWith(
+      'https://js.flock-dev.com/web-elements/pr-123/client/index.js'
+    );
+    expect(mockElements.init).toHaveBeenCalledWith(
+      apiKey,
+      'https://js.flock-dev.com/web-elements/pr-123/hosted-elements/',
+      false,
+      true,
+      false,
       false,
       false
     );
@@ -96,6 +153,7 @@ describe('BasisTheory', () => {
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       true,
+      false,
       false,
       false
     );

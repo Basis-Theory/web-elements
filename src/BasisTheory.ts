@@ -2,11 +2,13 @@ import { logger } from './common/logging';
 import { loadElements } from './elements';
 import { BasisTheoryElements } from './types/elements';
 import { version } from './version';
+import { CLIENT_JS_URL, HOSTED_ELEMENTS_BASE_URL } from './urls';
 
 interface BasisTheoryInitOptions {
   _devMode?: boolean;
   disableTelemetry?: boolean;
   useSameOriginApi?: boolean;
+  useUat?: boolean;
   debug?: boolean;
 }
 
@@ -26,17 +28,24 @@ const basistheory = async (
   logger.setBaseUrl(baseUrl);
   logger.disableTelemetry(Boolean(options?.disableTelemetry));
 
-  const elements = await loadElements(
-    `https://${baseUrl}/web-elements/${version}/client/index.js`
-  );
+  // Use build-time generated URLs if available, otherwise fall back to version-based URLs
+  const clientJsUrl =
+    CLIENT_JS_URL ||
+    `https://${baseUrl}/web-elements/${version}/client/index.js`;
+  const hostedElementsBaseUrl =
+    HOSTED_ELEMENTS_BASE_URL ||
+    `https://${baseUrl}/web-elements/${version}/hosted-elements/`;
+
+  const elements = await loadElements(clientJsUrl);
 
   return elements.init(
     apiKey,
-    `https://${baseUrl}/web-elements/${version}/hosted-elements/`,
+    hostedElementsBaseUrl,
     false,
     options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,
-    options?.debug ?? false
+    options?.debug ?? false,
+    options?.useUat ?? false
   );
 };
 

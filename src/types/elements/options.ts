@@ -22,6 +22,7 @@ interface ElementInternalOptions {
   useNgApi: boolean | undefined;
   useSameOriginApi: boolean | undefined;
   useUat: boolean | undefined;
+  useNetworkCheck: boolean | undefined;
 }
 
 enum InputMode {

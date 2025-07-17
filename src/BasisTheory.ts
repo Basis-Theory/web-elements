@@ -10,6 +10,7 @@ interface BasisTheoryInitOptions {
   useSameOriginApi?: boolean;
   useUat?: boolean;
   debug?: boolean;
+  useNetworkCheck?: boolean;
 }
 
 const TEST_ENV = 'js.flock-dev.com';
@@ -45,7 +46,8 @@ const basistheory = async (
     options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,
     options?.debug ?? false,
-    options?.useUat ?? false
+    options?.useUat ?? false,
+    options?.useNetworkCheck ?? false
   );
 };
 

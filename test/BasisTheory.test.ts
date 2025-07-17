@@ -43,6 +43,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
+      false,
       false
     );
     expect(result).toBe('mocked-elements');
@@ -66,6 +67,7 @@ describe('BasisTheory', () => {
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       true,
+      false,
       false,
       false,
       false
@@ -118,6 +120,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
+      false,
       false
     );
   });
@@ -153,6 +156,7 @@ describe('BasisTheory', () => {
       `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
       false,
       true,
+      false,
       false,
       false,
       false

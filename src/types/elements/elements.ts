@@ -132,7 +132,8 @@ interface BasisTheoryElementsInternal extends BasisTheoryElements {
     elementsUseSameOriginApi: boolean | undefined,
     disableTelemetry: boolean | undefined,
     debug: boolean | undefined,
-    useUat: boolean | undefined
+    useUat: boolean | undefined,
+    useNetworkCheck: boolean | undefined
   ) => Promise<BasisTheoryElements>;
   hasElement: (payload: unknown) => boolean;
 }

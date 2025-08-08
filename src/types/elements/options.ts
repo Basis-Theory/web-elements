@@ -40,6 +40,7 @@ interface SanitizedElementOptions {
   ariaDescription?: string;
   ariaLabel?: string;
   autoComplete?: AutoCompleteValue;
+  binLookup?: boolean;
   cardBrand?: string;
   cardTypes?: CreditCardType[];
   copyIconStyles?: CopyIconStyles;
@@ -83,6 +84,7 @@ interface CardAutoCompleteOption {
 
 type CustomizableElementOptions = Pick<
   ElementOptions,
+  | 'binLookup'
   | 'cardTypes'
   | 'copyIconStyles'
   | 'disabled'
@@ -97,6 +99,7 @@ type CustomizableElementOptions = Pick<
 
 type CardCustomizableElementOptions = Pick<
   ElementOptions,
+  | 'binLookup'
   | 'cardTypes'
   | 'copyIconStyles'
   | 'disabled'
@@ -136,7 +139,10 @@ interface CardElementAutoComplete {
 }
 
 type CreateCardElementOptions = CardCustomizableElementOptions &
-  Pick<ElementOptions, 'cardTypes' | 'skipLuhnValidation' | 'title'> & {
+  Pick<
+    ElementOptions,
+    'binLookup' | 'cardTypes' | 'skipLuhnValidation' | 'title'
+  > & {
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
   };
@@ -165,6 +171,7 @@ type UpdateTextElementOptions = Omit<
 type CreateCardNumberElementOptions = CustomizableElementOptions &
   Pick<
     ElementOptions,
+    | 'binLookup'
     | 'placeholder'
     | 'iconPosition'
     | 'cardTypes'

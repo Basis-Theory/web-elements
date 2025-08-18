@@ -1,4 +1,5 @@
 export * from './cardTypes';
+export * from './coBadgedSupport';
 export * from './elements';
 export * from './events';
 export * from './options';

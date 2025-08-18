@@ -1,4 +1,5 @@
 import { CreditCardType } from './cardTypes';
+import { CoBadgedSupport } from './coBadgedSupport';
 import { AutoCompleteValue, DataElementReference } from './shared';
 import type { CopyIconStyles, ElementStyle } from './styles';
 
@@ -43,6 +44,7 @@ interface SanitizedElementOptions {
   binLookup?: boolean;
   cardBrand?: string;
   cardTypes?: CreditCardType[];
+  coBadgedSupport?: string;
   copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
   enableCopy?: boolean;
@@ -87,6 +89,7 @@ type CustomizableElementOptions = Pick<
   | 'binLookup'
   | 'cardTypes'
   | 'copyIconStyles'
+  | 'coBadgedSupport'
   | 'disabled'
   | 'enableCopy'
   | 'inputMode'
@@ -143,6 +146,7 @@ type CreateCardElementOptions = CardCustomizableElementOptions &
     ElementOptions,
     'binLookup' | 'cardTypes' | 'skipLuhnValidation' | 'title'
   > & {
+    coBadgedSupport?: CoBadgedSupport[];
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
   };

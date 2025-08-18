@@ -11,6 +11,21 @@ const ELEMENTS_SCRIPT_FAILED_TO_DELIVER =
   'Failed to deliver Elements script from Basis Theory. Check your network connection and try again or contact support@basistheory.com';
 
 const CARD_BRANDS = [
+  'accel',
+  'bancontact',
+  'cartes-bancaires',
+  'culiance',
+  'dankort',
+  'ebt',
+  'eftpos-australia',
+  'nyce',
+  'private-label',
+  'prop',
+  'pulse',
+  'rupay',
+  'star',
+  'uatp',
+  'korean-local',
   'visa',
   'mastercard',
   'american-express',

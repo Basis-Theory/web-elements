@@ -2,4 +2,8 @@ export * from './elements';
 export * from './models';
 export * from './sdk';
 
-export { CARD_BRANDS } from '../elements/constants';
+export {
+  AUTOCOMPLETE_VALUES,
+  CARD_BRANDS,
+  CARD_ICON_POSITIONS,
+} from '../elements/constants';

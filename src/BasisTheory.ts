@@ -1,8 +1,8 @@
 import { logger } from './common/logging';
 import { loadElements } from './elements';
 import { BasisTheoryElements } from './types/elements';
-import { version } from './version';
 import { CLIENT_JS_URL, HOSTED_ELEMENTS_BASE_URL } from './urls';
+import { version } from './version';
 
 interface BasisTheoryInitOptions {
   _devMode?: boolean;

@@ -14,11 +14,21 @@ interface BinDetails {
   issuerCurrency?: string;
   comboCard?: string;
   binLength?: number;
-  authentication?: unknown;
-  cost?: unknown;
+  authentication?: Authentication;
+  cost?: Cost;
   bank?: BinDetailsBank;
   country?: BinDetailsCountry;
   product?: BinDetailsProduct;
+}
+
+interface Cost {
+  capAdvaloremAmount: string;
+  capTypeName: string;
+  capFixedAmount: string;
+}
+
+interface Authentication {
+  authenticationName: string;
 }
 
 interface BinDetailsBank {

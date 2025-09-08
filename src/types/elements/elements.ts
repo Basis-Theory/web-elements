@@ -1,4 +1,5 @@
 import type { HttpClient } from '../../types/sdk';
+import { Device } from '../sdk/services/device';
 import type {
   CardElementEvents,
   CardExpirationDateElementEvents,
@@ -108,6 +109,7 @@ interface BasisTheoryElements {
   tokenIntents: TokenIntents;
   tokenize: Tokenize['tokenize'];
   client: HttpClient;
+  device: Device;
 
   createElement(type: 'card', options?: CreateCardElementOptions): CardElement;
   createElement(type: 'text', options: CreateTextElementOptions): TextElement;

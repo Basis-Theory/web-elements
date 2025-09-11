@@ -1,6 +1,6 @@
 import type { Brand, FieldError, ListenableKey, Targeted } from './shared';
 
-type EventType = 'ready' | 'change' | 'focus' | 'blur' | 'keydown';
+type EventType = 'ready' | 'change' | 'focus' | 'blur' | 'keydown' | 'click';
 
 interface BaseEvent<T extends EventType> {
   type: T;
@@ -31,6 +31,8 @@ type InputKeydownEvent = BaseEvent<'keydown'> &
     key: ListenableKey;
   } & Pick<KeyboardEvent, 'altKey' | 'ctrlKey' | 'shiftKey' | 'metaKey'>;
 
+type ClickEvent = BaseEvent<'click'> & Targeted;
+
 type BaseElementEvents =
   | ReadyEvent
   | InputFocusEvent
@@ -47,6 +49,8 @@ type CardExpirationDateElementEvents = BaseElementEvents | ChangeEvent;
 
 type CardVerificationCodeElementEvents = BaseElementEvents | ChangeEvent;
 
+type CopyButtonElementEvents = BaseElementEvents | ClickEvent;
+
 /**
  * Utility type that helps find a Union type based on a `type` property
  */
@@ -61,20 +65,22 @@ interface Subscription {
 }
 
 export type {
-  EventType,
-  BaseEvent,
-  ReadyEvent,
-  ChangeEvent,
-  CardChangeEvent,
-  InputFocusEvent,
-  InputBlurEvent,
-  InputKeydownEvent,
   BaseElementEvents,
-  TextElementEvents,
+  BaseEvent,
+  CardChangeEvent,
   CardElementEvents,
-  CardNumberElementEvents,
   CardExpirationDateElementEvents,
+  CardNumberElementEvents,
   CardVerificationCodeElementEvents,
+  ChangeEvent,
+  ClickEvent,
+  CopyButtonElementEvents,
   ElementEventListener,
+  EventType,
+  InputBlurEvent,
+  InputFocusEvent,
+  InputKeydownEvent,
+  ReadyEvent,
   Subscription,
+  TextElementEvents,
 };

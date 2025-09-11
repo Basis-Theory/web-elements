@@ -44,7 +44,8 @@ describe('BasisTheory', () => {
       false,
       false,
       false,
-      false
+      false,
+      undefined
     );
     expect(result).toBe('mocked-elements');
   });
@@ -70,7 +71,8 @@ describe('BasisTheory', () => {
       false,
       false,
       false,
-      false
+      false,
+      undefined
     );
   });
 
@@ -121,7 +123,8 @@ describe('BasisTheory', () => {
       false,
       false,
       false,
-      false
+      false,
+      undefined
     );
   });
 
@@ -159,7 +162,8 @@ describe('BasisTheory', () => {
       false,
       false,
       false,
-      false
+      false,
+      undefined
     );
   });
 });

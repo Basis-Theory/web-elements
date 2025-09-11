@@ -1,13 +1,18 @@
 import { CreditCardType } from './cardTypes';
 import { CoBadgedSupport } from './coBadgedSupport';
 import { AutoCompleteValue, DataElementReference } from './shared';
-import type { CopyIconStyles, ElementStyle } from './styles';
+import type {
+  CopyButtonElementStyle,
+  CopyIconStyles,
+  ElementStyle,
+} from './styles';
 
 const ELEMENTS_TYPES = [
   'card',
   'cardExpirationDate',
   'cardNumber',
   'cardVerificationCode',
+  'copyButton',
   'data',
   'text',
 ] as const;
@@ -16,6 +21,7 @@ type ElementType = typeof ELEMENTS_TYPES[number];
 
 interface ElementInternalOptions {
   apiKey: string | undefined;
+  customDomain: string | undefined;
   baseUrl: string;
   type: ElementType;
   debug: boolean | undefined;
@@ -58,6 +64,7 @@ interface SanitizedElementOptions {
   skipLuhnValidation?: boolean;
   style?: ElementStyle;
   targetId?: string;
+  text?: string;
   title?: string;
   transform?: [RegExp, string] | null;
   validateOnChange?: boolean;
@@ -216,6 +223,20 @@ type UpdateCardVerificationCodeElementOptions = Omit<
   'targetId' | 'validateOnChange' | 'enableCopy'
 >;
 
+type CreateCopyButtonElementOptions = Pick<
+  ElementOptions,
+  'targetId' | 'title' | 'disabled'
+> & {
+  id?: string;
+  style?: CopyButtonElementStyle;
+  text?: string;
+};
+
+type UpdateCopyButtonElementOptions = Omit<
+  CreateCopyButtonElementOptions,
+  'targetId'
+>;
+
 export type {
   CardCustomizableElementOptions,
   CardElementAutoComplete,
@@ -226,6 +247,7 @@ export type {
   CreateCardExpirationDateElementOptions,
   CreateCardNumberElementOptions,
   CreateCardVerificationCodeElementOptions,
+  CreateCopyButtonElementOptions,
   CreateTextElementOptions,
   CustomizableElementOptions,
   ElementInternalOptions,
@@ -238,6 +260,7 @@ export type {
   UpdateCardExpirationDateElementOptions,
   UpdateCardNumberElementOptions,
   UpdateCardVerificationCodeElementOptions,
+  UpdateCopyButtonElementOptions,
   UpdateTextElementOptions,
 };
 

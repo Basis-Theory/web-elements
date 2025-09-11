@@ -1,4 +1,5 @@
 import { logger } from './common/logging';
+import { validateCustomDomain } from './common/whitelabelDomainValidation';
 import { loadElements } from './elements';
 import { BasisTheoryElements } from './types/elements';
 import { CLIENT_JS_URL, HOSTED_ELEMENTS_BASE_URL } from './urls';
@@ -11,10 +12,42 @@ interface BasisTheoryInitOptions {
   useUat?: boolean;
   debug?: boolean;
   useNetworkCheck?: boolean;
+  customDomain?: string;
 }
 
-const TEST_ENV = 'js.flock-dev.com';
-const DEFAULT_ENV = 'js.basistheory.com';
+const TEST_ORIGIN = 'https://js.flock-dev.com';
+const DEFAULT_ORIGIN = 'https://js.basistheory.com';
+
+const resolveUrls = (options?: BasisTheoryInitOptions) => {
+  if (options?._devMode && options?.customDomain) {
+    console.warn(
+      'Dev mode and domain whitelabeling are both enabled - dev mode takes precedence.'
+    );
+  }
+
+  let origin: string;
+  if (options?._devMode) {
+    origin = TEST_ORIGIN;
+  } else if (options?.customDomain) {
+    origin = validateCustomDomain(options.customDomain);
+  } else {
+    origin = DEFAULT_ORIGIN;
+  }
+
+  const base = `${origin}/web-elements/${version}`;
+  const client = `${base}/client/index.js`;
+  const hosted = `${base}/hosted-elements/`;
+
+  if (options?.customDomain && !options._devMode) {
+    return { origin, clientJsUrl: client, hostedElementsBaseUrl: hosted };
+  }
+
+  return {
+    origin,
+    clientJsUrl: CLIENT_JS_URL ?? client,
+    hostedElementsBaseUrl: HOSTED_ELEMENTS_BASE_URL ?? hosted,
+  };
+};
 
 const basistheory = async (
   apiKey: string,
@@ -24,18 +57,10 @@ const basistheory = async (
     throw new Error('API key is required');
   }
 
-  const baseUrl = options?._devMode ? TEST_ENV : DEFAULT_ENV;
+  const { origin, clientJsUrl, hostedElementsBaseUrl } = resolveUrls(options);
 
-  logger.setBaseUrl(baseUrl);
+  logger.setBaseUrl(origin);
   logger.disableTelemetry(Boolean(options?.disableTelemetry));
-
-  // Use build-time generated URLs if available, otherwise fall back to version-based URLs
-  const clientJsUrl =
-    CLIENT_JS_URL ||
-    `https://${baseUrl}/web-elements/${version}/client/index.js`;
-  const hostedElementsBaseUrl =
-    HOSTED_ELEMENTS_BASE_URL ||
-    `https://${baseUrl}/web-elements/${version}/hosted-elements/`;
 
   const elements = await loadElements(clientJsUrl);
 
@@ -47,7 +72,8 @@ const basistheory = async (
     options?.disableTelemetry ?? false,
     options?.debug ?? false,
     options?.useUat ?? false,
-    options?.useNetworkCheck ?? false
+    options?.useNetworkCheck ?? false,
+    options?.customDomain ? origin : undefined
   );
 };
 

@@ -5,6 +5,7 @@ import type {
   CardExpirationDateElementEvents,
   CardNumberElementEvents,
   CardVerificationCodeElementEvents,
+  CopyButtonElementEvents,
   ElementEventListener,
   EventType,
   Subscription,
@@ -17,11 +18,13 @@ import type {
   CreateCardExpirationDateElementOptions,
   CreateCardNumberElementOptions,
   CreateCardVerificationCodeElementOptions,
+  CreateCopyButtonElementOptions,
   CreateTextElementOptions,
   UpdateCardElementOptions,
   UpdateCardExpirationDateElementOptions,
   UpdateCardNumberElementOptions,
   UpdateCardVerificationCodeElementOptions,
+  UpdateCopyButtonElementOptions,
   UpdateTextElementOptions,
 } from './options';
 import type { Proxy, TokenIntents, Tokenize, Tokens } from './services';
@@ -87,6 +90,19 @@ type CardVerificationCodeElement = BaseElement<
   setValue(value: DataElementReference): void;
 };
 
+type CopyButtonElement = BaseElement<
+  UpdateCopyButtonElementOptions,
+  CopyButtonElementEvents
+> & {
+  setValueRef(
+    value:
+      | TextElement
+      | CardNumberElement
+      | CardExpirationDateElement
+      | CardVerificationCodeElement
+  ): void;
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ElementWrapper<T extends BaseElement<any, any> = BaseElement<any, any>> = {
   element: T;
@@ -100,6 +116,7 @@ type ElementValue =
   | CardNumberElement
   | CardExpirationDateElement
   | CardVerificationCodeElement
+  | CopyButtonElement
   | ElementWrapper;
 
 interface BasisTheoryElements {
@@ -125,6 +142,10 @@ interface BasisTheoryElements {
     type: 'cardVerificationCode',
     options: CreateCardVerificationCodeElementOptions
   ): CardVerificationCodeElement;
+  createElement(
+    type: 'copyButton',
+    options: CreateCopyButtonElementOptions
+  ): CopyButtonElement;
 }
 interface BasisTheoryElementsInternal extends BasisTheoryElements {
   init: (
@@ -135,7 +156,8 @@ interface BasisTheoryElementsInternal extends BasisTheoryElements {
     disableTelemetry: boolean | undefined,
     debug: boolean | undefined,
     useUat: boolean | undefined,
-    useNetworkCheck: boolean | undefined
+    useNetworkCheck: boolean | undefined,
+    customDomain: string | undefined
   ) => Promise<BasisTheoryElements>;
   hasElement: (payload: unknown) => boolean;
 }
@@ -156,5 +178,6 @@ export type {
   CardExpirationDateElement as ICardExpirationDateElement,
   CardNumberElement as ICardNumberElement,
   CardVerificationCodeElement as ICardVerificationCodeElement,
+  CopyButtonElement as ICopyButtonElement,
   TextElement as ITextElement,
 };

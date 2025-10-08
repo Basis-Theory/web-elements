@@ -96,7 +96,6 @@ type CustomizableElementOptions = Pick<
   | 'binLookup'
   | 'cardTypes'
   | 'copyIconStyles'
-  | 'coBadgedSupport'
   | 'disabled'
   | 'enableCopy'
   | 'inputMode'
@@ -191,6 +190,7 @@ type CreateCardNumberElementOptions = CustomizableElementOptions &
   > &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
+    coBadgedSupport?: CoBadgedSupport[];
     value?: string;
   };
 

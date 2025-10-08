@@ -1,7 +1,10 @@
+import { DeviceInfo } from '../../sdk/services/device';
+
 interface RequestOptions {
   apiKey?: string;
   correlationId?: string;
   idempotencyKey?: string;
+  deviceInfo?: DeviceInfo;
 }
 
 type Create<T, C> = {

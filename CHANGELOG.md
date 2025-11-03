@@ -1,4 +1,4 @@
-## [2.4.0] - 2025-11-03
+## [2.5.0] - 2025-11-03
 
 ### Features
 
@@ -6,6 +6,7 @@
 
 ### Bug Fixes
 
+- 693f6e0 2025-11-03 fix: improves npm release error handling (#540) by kevin@basistheory.com
 - 8e67f12 2025-10-30 fix: change publish command from yarn to npm (#539) by kevin@basistheory.com
 - 0af4d95 2025-10-29 fix: adds trusted publishing (#537) by kevin@basistheory.com
 

@@ -1,7 +1,10 @@
 {
   "name": "@basis-theory/web-elements",
-  "version": "2.3.0",
-  "repository": "https://github.com/basis-theory/web-elements",
+  "version": "2.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basis-theory/web-elements.git"
+  },
   "license": "Apache-2.0",
   "author": {
     "name": "Basis Theory",

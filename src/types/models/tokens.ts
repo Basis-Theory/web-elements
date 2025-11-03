@@ -97,8 +97,8 @@ type EncryptToken<DataType = Primitive> = {
   tokenRequests:
     | { [key: string]: Pick<CreateToken<DataType>, 'data' | 'type'> }
     | Pick<CreateToken<DataType>, 'data' | 'type'>;
-  public_key: string;
-  key_id: string;
+  publicKeyPem: string;
+  keyId: string;
 };
 
 type EncryptedSingleToken = {

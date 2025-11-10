@@ -73,6 +73,7 @@ interface SanitizedElementOptions {
     | CardElementValue<'static'>
     | CardExpirationDateValue<'static'>
     | string;
+  maxElapsedExpirationYear?: number;
 }
 
 type ElementOptions = ElementInternalOptions & SanitizedElementOptions;
@@ -155,6 +156,7 @@ type CreateCardElementOptions = CardCustomizableElementOptions &
     coBadgedSupport?: CoBadgedSupport[];
     placeholder?: CardElementPlaceholder;
     value?: CardElementValue<'static'>;
+    maxElapsedExpirationYear?: number;
   };
 
 type UpdateCardElementOptions = Omit<
@@ -204,6 +206,7 @@ type CreateCardExpirationDateElementOptions = CustomizableElementOptions &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
     value?: CardExpirationDateValue<'static'> | string;
+    maxElapsedExpirationYear?: number;
   };
 
 type UpdateCardExpirationDateElementOptions = Omit<

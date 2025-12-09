@@ -43,7 +43,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
-      false,
+      'production',
       false,
       undefined
     );
@@ -70,7 +70,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
-      false,
+      'production',
       false,
       undefined
     );
@@ -122,7 +122,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
-      false,
+      'production',
       false,
       undefined
     );
@@ -161,7 +161,7 @@ describe('BasisTheory', () => {
       true,
       false,
       false,
-      false,
+      'production',
       false,
       undefined
     );

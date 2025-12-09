@@ -155,7 +155,7 @@ interface BasisTheoryElementsInternal extends BasisTheoryElements {
     elementsUseSameOriginApi: boolean | undefined,
     disableTelemetry: boolean | undefined,
     debug: boolean | undefined,
-    useUat: boolean | undefined,
+    environment: string | undefined,
     useNetworkCheck: boolean | undefined,
     customDomain: string | undefined
   ) => Promise<BasisTheoryElements>;

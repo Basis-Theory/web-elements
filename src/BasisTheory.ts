@@ -9,7 +9,7 @@ interface BasisTheoryInitOptions {
   _devMode?: boolean;
   disableTelemetry?: boolean;
   useSameOriginApi?: boolean;
-  useUat?: boolean;
+  environment?: string;
   debug?: boolean;
   useNetworkCheck?: boolean;
   customDomain?: string;
@@ -71,7 +71,7 @@ const basistheory = async (
     options?.useSameOriginApi ?? true,
     options?.disableTelemetry ?? false,
     options?.debug ?? false,
-    options?.useUat ?? false,
+    options?.environment ?? 'production',
     options?.useNetworkCheck ?? false,
     options?.customDomain ? origin : undefined
   );

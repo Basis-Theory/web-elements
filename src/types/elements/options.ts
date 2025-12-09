@@ -28,7 +28,7 @@ interface ElementInternalOptions {
   disableTelemetry: boolean | undefined;
   useNgApi: boolean | undefined;
   useSameOriginApi: boolean | undefined;
-  useUat: boolean | undefined;
+  environment: string | undefined;
   useNetworkCheck: boolean | undefined;
 }
 

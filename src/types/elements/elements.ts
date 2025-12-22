@@ -54,12 +54,12 @@ interface BaseElement<UpdateOptions, ElementEvents> {
 
 type CardElement = BaseElement<UpdateCardElementOptions, CardElementEvents> & {
   readonly cardMetadata?: CardMetadata;
-  setValue(value: CardElementValue<'reference'>): void;
+  setValue(value: CardElementValue<'reference'>, validate?: boolean): void;
 };
 
 type TextElement = BaseElement<UpdateTextElementOptions, TextElementEvents> & {
   setValueRef(value: TextElement): void;
-  setValue(value: DataElementReference): void;
+  setValue(value: DataElementReference, validate?: boolean): void;
 };
 
 type CardNumberElement = BaseElement<
@@ -68,7 +68,7 @@ type CardNumberElement = BaseElement<
 > & {
   readonly cardMetadata?: CardMetadata;
   setValueRef(value: CardNumberElement): void;
-  setValue(value: DataElementReference): void;
+  setValue(value: DataElementReference, validate?: boolean): void;
 };
 
 type CardExpirationDateElement = BaseElement<
@@ -76,7 +76,10 @@ type CardExpirationDateElement = BaseElement<
   CardExpirationDateElementEvents
 > & {
   setValueRef(value: CardExpirationDateElement): void;
-  setValue(value: CardExpirationDateValue<'reference'>): void;
+  setValue(
+    value: CardExpirationDateValue<'reference'>,
+    validate?: boolean
+  ): void;
   month(): ElementWrapper<CardExpirationDateElement>;
   year(): ElementWrapper<CardExpirationDateElement>;
   format(dateFormat: string): ElementWrapper<CardExpirationDateElement>;
@@ -87,7 +90,7 @@ type CardVerificationCodeElement = BaseElement<
   CardVerificationCodeElementEvents
 > & {
   setValueRef(value: CardVerificationCodeElement): void;
-  setValue(value: DataElementReference): void;
+  setValue(value: DataElementReference, validate?: boolean): void;
 };
 
 type CopyButtonElement = BaseElement<

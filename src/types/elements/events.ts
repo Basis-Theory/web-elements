@@ -1,6 +1,13 @@
 import type { Brand, FieldError, ListenableKey, Targeted } from './shared';
 
-type EventType = 'ready' | 'change' | 'focus' | 'blur' | 'keydown' | 'click';
+type EventType =
+  | 'ready'
+  | 'change'
+  | 'focus'
+  | 'blur'
+  | 'keydown'
+  | 'click'
+  | 'copy';
 
 interface BaseEvent<T extends EventType> {
   type: T;
@@ -33,6 +40,8 @@ type InputKeydownEvent = BaseEvent<'keydown'> &
 
 type ClickEvent = BaseEvent<'click'> & Targeted;
 
+type CopyEvent = BaseEvent<'copy'> & Targeted;
+
 type BaseElementEvents =
   | ReadyEvent
   | InputFocusEvent
@@ -41,15 +50,21 @@ type BaseElementEvents =
 
 type TextElementEvents = BaseElementEvents | ChangeEvent;
 
-type CardElementEvents = BaseElementEvents | CardChangeEvent;
+type CardElementEvents = BaseElementEvents | CardChangeEvent | CopyEvent;
 
-type CardNumberElementEvents = BaseElementEvents | CardChangeEvent;
+type CardNumberElementEvents = BaseElementEvents | CardChangeEvent | CopyEvent;
 
-type CardExpirationDateElementEvents = BaseElementEvents | ChangeEvent;
+type CardExpirationDateElementEvents =
+  | BaseElementEvents
+  | ChangeEvent
+  | CopyEvent;
 
-type CardVerificationCodeElementEvents = BaseElementEvents | ChangeEvent;
+type CardVerificationCodeElementEvents =
+  | BaseElementEvents
+  | ChangeEvent
+  | CopyEvent;
 
-type CopyButtonElementEvents = BaseElementEvents | ClickEvent;
+type CopyButtonElementEvents = BaseElementEvents | ClickEvent | CopyEvent;
 
 /**
  * Utility type that helps find a Union type based on a `type` property
@@ -75,6 +90,7 @@ export type {
   ChangeEvent,
   ClickEvent,
   CopyButtonElementEvents,
+  CopyEvent,
   ElementEventListener,
   EventType,
   InputBlurEvent,

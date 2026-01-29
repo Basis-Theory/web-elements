@@ -1,5 +1,5 @@
 {
-  "updated": "2026-01-16T20:39:22.519Z",
+  "updated": "2026-01-29T14:58:33.914Z",
   "integrityHashes": {
     "1.9.0": "sha384-FwXkSk949vVd8j/qArL0/HMyxXc7XOVo+mbQ1eF8ODxVXKSKiyKy/EzaFefUkrKf",
     "1.10.0": "sha384-wOvvF3OB2bdQtvT33adVTkosWVYQQDzV6+TxxXiYx6E7KF3GCBr0BIqT4AEDM1Ts",
@@ -47,6 +47,7 @@
     "2.8.1": "sha384-3VwDR1IiyNf9+/NWasam+sck+2+c7itlCU2d42ySUaNejtgShzI3Wp6D/S2FqiXI",
     "2.8.2": "sha384-kir6PbrWzcRD9APrhhTKSBPqXj9x5iBhMn1OHRmuBy6OkN2v1V0+vTxWc1zDStIr",
     "2.8.3": "sha384-5GmDGAfb4BCLAVNqI9H0XVdev5j953HwXExdd+zgLl5UaLnv2kwnE6CHd9pmbz+2",
-    "2.8.4": "sha384-gAdat91DB9v2NNNWr5TGQav1bY2k8Zv3hNh8EDIxefc9Wq0o0UJSvDuFMoy6nrp+"
+    "2.8.4": "sha384-gAdat91DB9v2NNNWr5TGQav1bY2k8Zv3hNh8EDIxefc9Wq0o0UJSvDuFMoy6nrp+",
+    "2.9.0": "sha384-wmu8CwhrvCHCqTiSWYh8A/1fd1TwPiM5h5X7pQlLhfyb1op8euEb2Z7wJqN5XXt2"
   }
 }

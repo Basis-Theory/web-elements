@@ -151,7 +151,7 @@ interface CardElementAutoComplete {
 type CreateCardElementOptions = CardCustomizableElementOptions &
   Pick<
     ElementOptions,
-    'binLookup' | 'cardTypes' | 'skipLuhnValidation' | 'title'
+    'binLookup' | 'cardTypes' | 'skipLuhnValidation' | 'iconPosition' | 'title'
   > & {
     coBadgedSupport?: CoBadgedSupport[];
     placeholder?: CardElementPlaceholder;

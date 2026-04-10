@@ -20,7 +20,7 @@ const DEFAULT_ORIGIN = 'https://js.basistheory.com';
 
 const resolveUrls = (options?: BasisTheoryInitOptions) => {
   if (options?._devMode && options?.customDomain) {
-    console.warn(
+    logger.log.warn(
       'Dev mode and domain whitelabeling are both enabled - dev mode takes precedence.'
     );
   }

@@ -1,6 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   rules: {
+    'no-console': 'error',
     'unicorn/no-null': 'warn',
     curly: 'off',
     camelcase: [

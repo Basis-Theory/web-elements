@@ -43,6 +43,7 @@ export const logger = (() => {
     };
 
     if (['local', 'dev'].includes(env)) {
+      // eslint-disable-next-line no-console
       console.log(payload);
     }
 

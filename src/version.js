@@ -1,2 +1,2 @@
 // Auto-generated version file
-export const version = '2.11.1';
+export const version = '2.11.2';

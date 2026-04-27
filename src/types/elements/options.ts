@@ -1,6 +1,6 @@
 import { CreditCardType } from './cardTypes';
 import { CoBadgedSupport } from './coBadgedSupport';
-import { AutoCompleteValue, DataElementReference } from './shared';
+import { AutoCompleteValue, Brand, DataElementReference } from './shared';
 import type {
   CopyButtonElementStyle,
   CopyIconStyles,
@@ -60,6 +60,7 @@ interface SanitizedElementOptions {
   maxLength?: HTMLInputElement['maxLength'];
   password?: boolean;
   placeholder?: string;
+  preSelectedNetworks?: string;
   readOnly?: boolean;
   skipLuhnValidation?: boolean;
   style?: ElementStyle;
@@ -155,6 +156,7 @@ type CreateCardElementOptions = CardCustomizableElementOptions &
   > & {
     coBadgedSupport?: CoBadgedSupport[];
     placeholder?: CardElementPlaceholder;
+    preSelectedNetworks?: Brand[];
     value?: CardElementValue<'static'>;
     maxElapsedExpirationYear?: number;
   };
@@ -193,6 +195,7 @@ type CreateCardNumberElementOptions = CustomizableElementOptions &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
     coBadgedSupport?: CoBadgedSupport[];
+    preSelectedNetworks?: Brand[];
     value?: string;
   };
 

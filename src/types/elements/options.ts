@@ -53,6 +53,7 @@ interface SanitizedElementOptions {
   coBadgedSupport?: string;
   copyIconStyles?: CopyIconStyles;
   disabled?: boolean;
+  showSpacing?: boolean;
   enableCopy?: boolean;
   iconPosition?: string;
   inputMode?: `${InputMode}`;
@@ -208,13 +209,14 @@ type CreateCardExpirationDateElementOptions = CustomizableElementOptions &
   Pick<ElementOptions, 'title' | 'placeholder'> &
   Required<Pick<ElementOptions, 'targetId'>> & {
     'aria-label'?: string;
+    showSpacing?: boolean;
     value?: CardExpirationDateValue<'static'> | string;
     maxElapsedExpirationYear?: number;
   };
 
 type UpdateCardExpirationDateElementOptions = Omit<
   CreateCardExpirationDateElementOptions,
-  'targetId' | 'validateOnChange' | 'enableCopy'
+  'targetId' | 'validateOnChange' | 'enableCopy' | 'showSpacing'
 >;
 
 type CreateCardVerificationCodeElementOptions = CustomizableElementOptions &

@@ -160,7 +160,8 @@ interface BasisTheoryElementsInternal extends BasisTheoryElements {
     debug: boolean | undefined,
     environment: string | undefined,
     useNetworkCheck: boolean | undefined,
-    customDomain: string | undefined
+    customDomain: string | undefined,
+    region: string | undefined
   ) => Promise<BasisTheoryElements>;
   hasElement: (payload: unknown) => boolean;
 }

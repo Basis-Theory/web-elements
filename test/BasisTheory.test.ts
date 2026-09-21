@@ -45,6 +45,7 @@ describe('BasisTheory', () => {
       false,
       'production',
       false,
+      undefined,
       undefined
     );
     expect(result).toBe('mocked-elements');
@@ -72,7 +73,32 @@ describe('BasisTheory', () => {
       false,
       'production',
       false,
+      undefined,
       undefined
+    );
+  });
+
+  it('should forward the region to init', async () => {
+    const mockElements = {
+      init: jest.fn().mockResolvedValue('mocked-elements'),
+    };
+    mockLoadElements.mockResolvedValue(mockElements);
+
+    const apiKey = 'test-api-key';
+
+    await basistheory(apiKey, { region: 'eu' });
+
+    expect(mockElements.init).toHaveBeenCalledWith(
+      apiKey,
+      `https://js.basistheory.com/web-elements/${version}/hosted-elements/`,
+      false,
+      true,
+      false,
+      false,
+      'production',
+      false,
+      undefined,
+      'eu'
     );
   });
 
@@ -124,6 +150,7 @@ describe('BasisTheory', () => {
       false,
       'production',
       false,
+      undefined,
       undefined
     );
   });
@@ -163,6 +190,7 @@ describe('BasisTheory', () => {
       false,
       'production',
       false,
+      undefined,
       undefined
     );
   });

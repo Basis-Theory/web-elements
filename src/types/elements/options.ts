@@ -29,6 +29,7 @@ interface ElementInternalOptions {
   useNgApi: boolean | undefined;
   useSameOriginApi: boolean | undefined;
   environment: string | undefined;
+  region: string | undefined;
   useNetworkCheck: boolean | undefined;
 }
 
